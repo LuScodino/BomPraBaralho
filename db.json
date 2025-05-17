@@ -1,0 +1,114 @@
+{
+  "cartas": [
+    {
+      "id": "1",
+      "nome": "Montanha",
+      "imagem": "/IMGS/CARTAS/TERRENOS/VERMELHO/MONTANHATERRENOVERMELHO.jpg",
+      "cor": "Vermelho",
+      "tipo": "Terreno"
+    },
+    {
+      "id": "2",
+      "nome": "Destroy Evil",
+      "imagem": "/IMGS/CARTAS/BRANCAS/CARTADESTROYEVILBRANCA.jpg",
+      "cor": "Branco",
+      "tipo": "Feitiço"
+    },
+    {
+      "id": "3",
+      "nome": "Sheltered by Ghosts",
+      "imagem": "/IMGS/CARTAS/BRANCAS/SHELTEREDBYGHOSTSBRANCA.jpg",
+      "cor": "Branco",
+      "tipo": "Feitiço"
+    },
+    {
+      "id": "4",
+      "nome": "Brotherhood's End",
+      "imagem": "/IMGS/CARTAS/VERMELHAS/BROTHEHOODSENDVERMELHA.jpg",
+      "cor": "Vermelho",
+      "tipo": "Feitiço"
+    }
+  ],
+  "colecao": [],
+  "decks": [],
+  "novidades": [
+    {
+      "nome": "Aetherdrift",
+      "imagem": "/IMGS/COLECOESNOVAS/COLECOESNOVAS1.webp",
+      "id": "3c2d"
+    },
+    {
+      "nome": "Duskmourn",
+      "imagem": "/IMGS/COLECOESNOVAS/COLECOESNOVAS2.webp",
+      "id": "f6d1"
+    },
+    {
+      "nome": "Bloomburrow",
+      "imagem": "/IMGS/COLECOESNOVAS/COLECOESNOVAS3.webp",
+      "id": "62f8"
+    },
+    {
+      "nome": "Assassin's Creed",
+      "imagem": "/IMGS/COLECOESNOVAS/COLECOESNOVAS4.webp",
+      "id": "9cf9"
+    }
+  ],
+  "decksSemana": [
+    {
+      "nome": "Esper Pixie",
+      "imagem": "/IMGS/MELHORESDECKS/MELHORESDECKS.webp",
+      "id": "a140"
+    },
+    {
+      "nome": "Gruul Agro",
+      "imagem": "/IMGS/MELHORESDECKS/MELHORESDECKS2.jpg",
+      "id": "3744"
+    },
+    {
+      "nome": "Overlord Zur",
+      "imagem": "/IMGS/MELHORESDECKS/MELHORESDECKS3.jpg",
+      "id": "4353"
+    }
+  ],
+  "favoritos": [
+    {
+      "nome": "Red Deck Wins",
+      "imagem": "/IMGS/MELHORESDECKSEVER/MELHORESDECKSEVER1.jpg",
+      "id": "8ec9"
+    },
+    {
+      "nome": "Dimir Midrange",
+      "imagem": "/IMGS/MELHORESDECKSEVER/MELHORESDECKSEVER2.jpg",
+      "id": "3ef3"
+    }
+  ],
+  "decksNovos": [
+    {
+      "nome": "Esper Pixie",
+      "imagem": "/IMGS/MELHORESDECKS/MELHORESDECKS.webp",
+      "id": "4dbf"
+    },
+    {
+      "nome": "Gruul Agro",
+      "imagem": "/IMGS/MELHORESDECKS/MELHORESDECKS2.jpg",
+      "id": "8500"
+    },
+    {
+      "nome": "Overlord Zur",
+      "imagem": "/IMGS/MELHORESDECKS/MELHORESDECKS3.jpg",
+      "id": "8503"
+    }
+  ],
+  "decksMelhores": [
+    {
+      "nome": "Red Deck Wins",
+      "imagem": "/IMGS/MELHORESDECKSEVER/MELHORESDECKSEVER1.jpg",
+      "id": "b9dc"
+    },
+    {
+      "nome": "Dimir Midrange",
+      "imagem": "/IMGS/MELHORESDECKSEVER/MELHORESDECKSEVER2.jpg",
+      "id": "6806"
+    }
+  ]
+}
