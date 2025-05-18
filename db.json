@@ -27,6 +27,104 @@
       "imagem": "/IMGS/CARTAS/VERMELHAS/BROTHEHOODSENDVERMELHA.jpg",
       "cor": "Vermelho",
       "tipo": "Feitiço"
+    },
+    {
+      "id": "5",
+      "nome": "Nurturing Pixie",
+      "imagem": "/IMGS/CARTAS/BRANCAS/SILFIDEACALENTADORA",
+      "cor": "Branco",
+      "tipo" : "Criatura"
+    },
+    {
+      "id": "6",
+      "nome": "Fear Of Isolation",
+      "imagem" : "/IMGS/CARTAS/AZUIS/FEAROFISOLATION",
+      "cor" : "Azul",
+      "tipo" : "Criatura"
+    },
+    {
+      "id" : "7",
+      "nome": "Preacher Of The Schism ",
+      "imagem" : "/IMGS/CARTAS/PRETAS/PREACHEROFTHESCHISM",
+      "cor" : "preto",
+      "tipo" : "criatura"
+    },
+    {
+      "id" : "8",
+      "nome": "Overlord of the Balemurk",
+      "imagem": "/IMGS/CARTAS/PRETAS/OVERLORDOFTHEBALEMURK",
+      "cor" : "preto",
+      "tipo" : "criatura"
+    },
+    {
+      "id": "9",
+      "nome" : "Kaito",
+      "imagem": "/IMGS/CARTAS/AZUIS/KAITO",
+      "cor": "azul preto",
+      "tipo": "planeswalker"
+    },
+    {
+      "id": "10",
+      "nome" : "Go For The Throat",
+      "imagem" : "/IMGS/CARTAS/PRETAS/GOFORTHETHROAT",
+      "cor" : "preto",
+      "tipo" : "instantâneo"
+    },
+    {
+      "id" : "11",
+      "nome" : "Destroy Evil",
+      "imagem" : "/IMGS/CARTAS/BRANCAS/DESTROYEVIL",
+      "cor" : "Branco",
+      "tipo" : "instantâneo"
+    },
+    {
+      "id" : "12",
+      "nome" : "Stock Up",
+      "imagem" : "/IMGS/CARTAS/AZUIS/STOCKUP",
+      "cor" : "azul",
+      "tipo" : "feitiço"
+    },
+    {
+      "id" : "13",
+      "nome" : "This Town Aint Big Enough",
+      "imagem" : "/IMGS/CARTAS/AZUIS/THISTOWNAINTBIGENOUGH",
+      "cor" : "azul",
+      "tipo" : "instantânea"
+    },
+    {
+      "id" : "14",
+      "nome" : "hopeless nightmare",
+      "imagem" : "/IMGS/CARTAS/PRETAS/HOPELESSNIGHTMARE",
+      "cor" : "preto",
+      "tipo" : "Encantamento"
+    },
+    {
+      "id" : "15",
+      "nome" : "stormchasers talent",
+      "imagem" : "/IMGS/CARTAS/AZUIS/STORMCHASERSTALENT",
+      "cor" : "azul",
+      "tipo" : "encantamento"
+    },
+    {
+      "id" : "16",
+      "nome" : "MOmentum Breaker",
+      "imagem" : "/IMGS/CARTAS/PRETAS/MOMENTUMBREAKER",
+      "cor" : "preto",
+      "tipo" : "encantamento"
+    },
+    {
+      "id" : "17",
+      "nome" : "nowhere to run",
+      "imagem" : "/IMGS/CARTAS/PRETAS/NOWHERETORUN",
+      "cor" : "preto",
+      "tipo" : "encantamento"
+    },
+    {
+      "id" : "18",
+      "nome" : "restless anchorage",
+      "imagem" : "/IMGS/CARTAS/TERRENOS/BRANCOAZUL/RESTLESSANCHORAGE",
+      "cor" : "Branco Azul",
+      "tipo" : "Terreno"
     }
   ],
   "colecao": [],
