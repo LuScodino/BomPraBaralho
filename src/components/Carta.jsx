@@ -20,12 +20,19 @@ function Carta({ id, imagem, nome, cor, tipo, onAdd, onRemove }) {
   return (
     <div>
       <img
-        src={imagem}
-        alt={nome}
-        className="cardimg"
-        onClick={() => setShowZoom(true)}
-        style={{ cursor: 'pointer', transition: 'transform 0.3s ease' }}
-      />
+            src={imagem}
+            alt={nome}
+            onClick={() => setShowZoom(true)}
+            style={{
+            height: '300px',
+            width: 'auto',
+            maxWidth: '100%',
+            objectFit: 'contain',
+            display: 'block',
+            margin: '0 auto',
+            cursor: 'pointer'
+  }}
+/>
 
       {showZoom && (
         <div

@@ -6,6 +6,7 @@ const TIPOS = ['Criatura', 'Feitiço', 'Artefato', 'Encantamento', 'Terreno', 'P
 function CriarDeckPage() {
   const [colecao, setColecao] = useState([]);
   const [filtroTipos, setFiltroTipos] = useState([]);
+  const [filtroCores, setFiltroCores] = useState([]);
   const [busca, setBusca] = useState('');
   const [deck, setDeck] = useState({});
   const [nomeDeck, setNomeDeck] = useState('');
@@ -20,6 +21,12 @@ function CriarDeckPage() {
   const toggleTipo = (tipo) => {
     setFiltroTipos((prev) =>
       prev.includes(tipo) ? prev.filter((t) => t !== tipo) : [...prev, tipo]
+    );
+  };
+
+  const toggleCor = (cor) => {
+    setFiltroCores((prev) =>
+      prev.includes(cor) ? prev.filter((c) => c !== cor) : [...prev, cor]
     );
   };
 
@@ -51,17 +58,18 @@ function CriarDeckPage() {
   const cartasFiltradas = useMemo(() => {
     return colecao.filter((carta) => {
       const nomeMatch = carta.nome?.toLowerCase().includes(busca.toLowerCase());
-      const tipoMatch =
-        filtroTipos.length === 0 || filtroTipos.includes(carta.tipo);
-      return nomeMatch && tipoMatch;
+      const tipoMatch = filtroTipos.length === 0 || filtroTipos.includes(carta.tipo);
+      const corMatch = filtroCores.length === 0 || filtroCores.includes(carta.cor);
+      return nomeMatch && tipoMatch && corMatch;
     });
-  }, [colecao, busca, filtroTipos]);
+  }, [colecao, busca, filtroTipos, filtroCores]);
 
   const totalCartas = Object.values(deck).reduce((acc, c) => acc + c.quantidade, 0);
 
   const salvarDeck = () => {
     if (!nomeDeck || totalCartas < 60) return;
     const novoDeck = {
+      id: Date.now(), // ID simples com timestamp
       nome: nomeDeck,
       cartas: deck,
       criadoEm: new Date().toISOString(),
@@ -104,6 +112,19 @@ function CriarDeckPage() {
                 onClick={() => toggleTipo(tipo)}
               >
                 {tipo}
+              </button>
+            ))}
+          </div>
+
+          <h5 className="mt-3">Filtro por Cor</h5>
+          <div className="d-flex flex-wrap gap-2">
+            {CORES.map((cor) => (
+              <button
+                key={cor}
+                className={`btn ${filtroCores.includes(cor) ? 'btn-primary' : 'btn-outline-primary'}`}
+                onClick={() => toggleCor(cor)}
+              >
+                {cor}
               </button>
             ))}
           </div>

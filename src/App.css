@@ -123,22 +123,21 @@ body {
 }
 
 .cardimg {
-  max-height: 300px;
-  object-fit: cover;
+  height: 300px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 .slider-container {
-  overflow-x: auto;
-  overflow-y: visible;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap; 
+  justify-content: center;
   gap: 1rem;
   padding: 1rem 0;
-  scroll-behavior: smooth;
-  position: relative;
-  z-index: 1;
 }
-
 .slider-container::-webkit-scrollbar {
   height: 8px;
 }
@@ -158,5 +157,36 @@ body {
 }
 
 .slider-container img:hover {
+  transform: scale(1.05);
+}
+
+.slider-destaque {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.slider-destaque::-webkit-scrollbar {
+  height: 10px;
+}
+
+.slider-destaque::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 10px;
+}
+
+.slider-destaque img {
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.slider-destaque img:hover {
   transform: scale(1.05);
 }

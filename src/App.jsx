@@ -11,24 +11,38 @@ import MeusDecksPage from './pages/MeusDecksPage';
 import ComunidadePage from './pages/ComunidadePage';
 import PesquisarCartasPage from './pages/PesquisarCartasPage';
 import CriarDeckPage from './pages/CriarDeckPage';
+import VisualizarDeckPage from './pages/VisualizarDeckPage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('menu');
   const [showProfile, setShowProfile] = useState(false);
   const [showAdd, setShowAdd] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
-
+  const [deckSelecionado, setDeckSelecionado] = useState(null);
+  
   const renderPage = () => {
-    switch (currentPage) {
-      case 'menu': return <MenuPage />;
-      case 'colecao': return <ColecaoPage setCurrentPage={setCurrentPage} />;
-      case 'meus-decks': return <MeusDecksPage setCurrentPage={setCurrentPage} />;
-      case 'comunidade': return <ComunidadePage />;
-      case 'pesquisar': return <PesquisarCartasPage />;
-      case 'criar-deck': return <CriarDeckPage />;
-      default: return <MenuPage />;
-    }
-  };
+  switch (currentPage) {
+    case 'menu': return <MenuPage setCurrentPage={setCurrentPage} />;
+    case 'colecao': return <ColecaoPage setCurrentPage={setCurrentPage} />;
+    case 'meus-decks': return (
+      <MeusDecksPage
+        setCurrentPage={setCurrentPage}
+        setDeckSelecionado={setDeckSelecionado}
+      />
+    );
+    case 'comunidade': return <ComunidadePage setCurrentPage={setCurrentPage} />;
+    case 'pesquisar': return <PesquisarCartasPage />;
+    case 'criar-deck': return <CriarDeckPage />;
+    case 'visualizar-deck': return (
+      <VisualizarDeckPage
+        deck={deckSelecionado}
+        setCurrentPage={setCurrentPage}
+        setDeckSelecionado={setDeckSelecionado}
+      />
+    );
+    default: return <MenuPage setCurrentPage={setCurrentPage} />;
+  }
+};
 
   return (
     <div className="App">
