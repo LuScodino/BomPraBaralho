@@ -129,6 +129,7 @@ body {
   object-fit: contain;
   display: block;
   margin: 0 auto;
+  background: transparent;
 }
 
 .slider-container {
@@ -168,6 +169,7 @@ body {
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: #ccc transparent;
+  background-color: transparent;
 }
 
 .slider-destaque::-webkit-scrollbar {
@@ -181,10 +183,11 @@ body {
 
 .slider-destaque img {
   height: 180px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
 }
 
 .slider-destaque img:hover {

@@ -1,6 +1,65 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 function VisualizarDeckPage({ deck, setCurrentPage, setDeckSelecionado }) {
+  const [salvo, setSalvo] = useState(false);
+  const [votoAtual, setVotoAtual] = useState(null); // like, dislike ou null
+
+  useEffect(() => {
+    if (!deck) return;
+
+    // Verifica se já está salvo em "meus decks"
+    fetch('http://localhost:3001/decks')
+      .then((res) => res.json())
+      .then((decks) => {
+        const jaSalvo = decks.some((d) => d.nome === deck.nome);
+        setSalvo(jaSalvo);
+      });
+
+    // Recupera voto do localStorage
+    const votos = JSON.parse(localStorage.getItem('votos') || '{}');
+    setVotoAtual(votos[deck.id] || null);
+  }, [deck]);
+
+  const salvarDeck = async () => {
+    const novoDeck = {
+      nome: deck.nome,
+      imagem: deck.imagem || '/IMGS/placeholder.jpg',
+      cartas: deck.cartas,
+      criadoEm: new Date().toISOString()
+    };
+    try {
+      await fetch('http://localhost:3001/decks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(novoDeck)
+      });
+
+      setSalvo(true);
+      alert('Deck salvo com sucesso!');
+    } catch (err) {
+      console.error('Erro ao salvar deck:', err);
+      alert('Erro ao salvar o deck. Veja o console.');
+    }
+  };
+
+const [voto, setVoto] = useState(null);
+
+const handleVoto = async (tipo) => {
+  if (voto === tipo) return;
+
+  const isLike = tipo === 'like';
+  const ajuste = voto === null ? 1 : 2; // mudança ou primeira vez
+  const novaAvaliacao = (deck.avaliacao || 0) + (isLike ? ajuste : -ajuste);
+
+  await fetch(`http://localhost:3001/decksNovos/${deck.id}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ avaliacao: novaAvaliacao })
+  });
+
+  setVoto(tipo);
+  setDeckSelecionado({ ...deck, avaliacao: novaAvaliacao });
+};
   if (!deck) {
     return (
       <div className="container text-center my-5">
@@ -13,8 +72,8 @@ function VisualizarDeckPage({ deck, setCurrentPage, setDeckSelecionado }) {
   }
 
   const navegar = (pagina) => {
-    setDeckSelecionado(null);     // limpa o deck selecionado
-    setCurrentPage(pagina);       // muda para a página desejada
+    setDeckSelecionado(null);
+    setCurrentPage(pagina);
   };
 
   return (
@@ -35,22 +94,37 @@ function VisualizarDeckPage({ deck, setCurrentPage, setDeckSelecionado }) {
         ))}
       </div>
 
-      <div className="mt-4 d-flex justify-content-center gap-3 flex-wrap">
-        <button className="btn btn-secondary" onClick={() => navegar('meus-decks')}>
-          ← Voltar para Meus Decks
+     
+      {salvo ? (
+        <p className="text-success mt-4">✅ Este deck já foi salvo.</p>
+      ) : (
+        <button className="btn btn-outline-primary mt-4" onClick={salvarDeck}>
+          💾 Salvar Deck
         </button>
-        <button className="btn btn-outline-primary" onClick={() => navegar('menu')}>
-          Ir para Menu
-        </button>
-        <button className="btn btn-outline-success" onClick={() => navegar('colecao')}>
-          Minha Coleção
-        </button>
-        <button className="btn btn-outline-warning" onClick={() => navegar('pesquisar')}>
-          Pesquisar Cartas
-        </button>
-      </div>
+      )}
+
+      
+      <div className="d-flex justify-content-center gap-3 mt-3">
+      <button
+          className="btn btn-outline-success"
+          onClick={() => handleVoto('like')}
+          disabled={voto === 'like'}
+      >
+      👍 Like
+      </button>
+
+      <button
+        className="btn btn-outline-danger"
+        onClick={() => handleVoto('dislike')}
+        disabled={voto === 'dislike'}
+      >
+      👎 Dislike
+      </button>
     </div>
+  </div>
   );
 }
 
 export default VisualizarDeckPage;
+
+

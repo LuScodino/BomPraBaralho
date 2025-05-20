@@ -22,24 +22,13 @@ function App() {
   
   const renderPage = () => {
   switch (currentPage) {
-    case 'menu': return <MenuPage setCurrentPage={setCurrentPage} />;
+    case 'menu': return <MenuPage setCurrentPage={setCurrentPage} setDeckSelecionado={setDeckSelecionado}/>;
     case 'colecao': return <ColecaoPage setCurrentPage={setCurrentPage} />;
-    case 'meus-decks': return (
-      <MeusDecksPage
-        setCurrentPage={setCurrentPage}
-        setDeckSelecionado={setDeckSelecionado}
-      />
-    );
-    case 'comunidade': return <ComunidadePage setCurrentPage={setCurrentPage} />;
+    case 'meus-decks': return (<MeusDecksPage setCurrentPage={setCurrentPage} setDeckSelecionado={setDeckSelecionado}/>);
+    case 'comunidade': return (<ComunidadePage setCurrentPage={setCurrentPage} setDeckSelecionado={setDeckSelecionado}/>);
     case 'pesquisar': return <PesquisarCartasPage />;
     case 'criar-deck': return <CriarDeckPage />;
-    case 'visualizar-deck': return (
-      <VisualizarDeckPage
-        deck={deckSelecionado}
-        setCurrentPage={setCurrentPage}
-        setDeckSelecionado={setDeckSelecionado}
-      />
-    );
+    case 'visualizar-deck': return (<VisualizarDeckPage deck={deckSelecionado} setCurrentPage={setCurrentPage} setDeckSelecionado={setDeckSelecionado}/>);
     default: return <MenuPage setCurrentPage={setCurrentPage} />;
   }
 };
